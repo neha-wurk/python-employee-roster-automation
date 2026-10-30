@@ -32,12 +32,14 @@ def generate_roster(start_date, days=7):
         for shift, required in SHIFTS.items():
             for position in range(required):
                 employee_index = (
-                    day * total_slots
-                    + sum(list(SHIFTS.values())[
-                        :list(SHIFTS.keys()).index(shift)
-                    ])
-                    + position
-                ) % len(EMPLOYEES)
+    day
+    + sum(
+        list(SHIFTS.values())[
+            :list(SHIFTS.keys()).index(shift)
+        ]
+    )
+    + position
+) % len(EMPLOYEES)
 
                 employee = EMPLOYEES[employee_index]
 
